@@ -21,7 +21,10 @@ app.get('/', (req, res) => {
   })
 })
 app.use('/products', productsRouter)
-app.use('auth', authRouter)
-app.use('user', userRouter)
+app.use('/auth', authRouter)
+
+app.use((req, res) => {
+  res.json({ status: 404, message: 'NotFound' })
+})
 
 export default app
