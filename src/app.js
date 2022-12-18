@@ -5,8 +5,10 @@ import productsRouter from './routes/products.routes.js'
 import authRouter from './routes/auth.routes.js'
 import userRouter from './routes/user.routes.js'
 import cors from 'cors'
+import { createRoles } from './libs/initialSetup.js'
 
 const app = express()
+createRoles() //crea los primeros roles por defecto
 app.set('pkg', pkg)
 app.use(morgan('dev'))
 app.use(express.json())
@@ -22,6 +24,7 @@ app.get('/', (req, res) => {
 })
 app.use('/products', productsRouter)
 app.use('/auth', authRouter)
+app.use('/users', userRouter)
 
 app.use((req, res) => {
   res.json({ status: 404, message: 'NotFound' })

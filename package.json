@@ -6,7 +6,7 @@
   "scripts": {
     "build": "babel src --out-dir build",
     "start": "node build/index.js",
-    "dev": "nodemon --trace-warnings src/index.js  --exec babel-node"
+    "dev": "nodemon --experimental-json-modules src/index.js  --exec babel-node"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "@babel/core": "7.20.5",
     "@babel/node": "7.20.5",
     "@babel/preset-env": "7.20.2",
-    "nodemon": "2.0.20"
+    "nodemon": "2.0.20",
+    "standard": "17.0.0"
   }
 }
